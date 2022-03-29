@@ -1,0 +1,18 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("JaxZa Paid", "LightTheme")
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Dupe Fruit")
+Section:NewButton("Click To Dupe", "FruitDupe", function()
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+  if v.Name == "Quake Fruit" then -- Change this depends on what fruit u have
+      v.Parent = game.Players.LocalPlayer.Character
+  end
+end
+wait()
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+  if v:IsA("Tool") then
+      v.Parent = game.Workspace
+  end
+end
+game.Players.LocalPlayer.Character.Humanoid:Destroy()
+end)
